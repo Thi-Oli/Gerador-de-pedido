@@ -1,66 +1,18 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Pedido Ambev</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.12.1/html2pdf.bundle.min.js" integrity="sha512-D25Z8/1q2z65ZpJ3NzY6XiPZfwjhbv34OTQHDIZd+KPK+uWCovGt+fMkSzW8ArzCMFUgZt6Cdu7qoXNuy6a2GA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js" defer ></script>
 </head>
-<body>
   
-    <style>
-        body {
-            font-weight: bold;
-            background-color: #0044cd;
-            color: white;
-            text-align: left;
-            padding: 40px;
-        }
-        .container {
-            background-color: #0044cd;
-            padding: 20px;
-            width: 600px;
-            margin: auto;
-        }
-        .logo {
-            text-align: center;
-            margin-bottom: 30px;
-            vertical-align: bottom;
-        }
-        .logo img {
-            width: 250px;
-        }
-        .highlight {
-            color: yellow;
-        }
-        .campo {
-            margin: 10px 0;
-        }
-        label {
-            font-weight: bold;
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: yellow;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        #preview {
-            background-color: #0044cd ;
-            color: white;
-            padding: 20px;
-            margin-top: 100px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
+
+<body >
+    <div  class="container">
         <div class="logo">
         </div>
         <p>Olá, <span id="nomeCliente">___________</span>, concluindo seu pagamento <span class="highlight">rastreie seu pedido no catálogo</span>.</p>
@@ -86,34 +38,29 @@
             <input type="text" id="cliente" placeholder="Digite o nome do cliente">
         </div>
         
-        <button onclick="gerarPreview()">Gerar Preview</button>
+        <button id='generate-pdf', onclick="gerarPreview()">Gerar Preview</button>
+
         
         <div id="preview">
             <div class="logo img"> <img src="Imagem/ambevimg.png" alt="Ambev Logo"> </div>
             
             <p>Olá, <span id="prevNome">___________</span>, concluindo seu pagamento <span class="highlight">rastreie seu pedido no catálogo</span>.</p>
+
             <p><b>Número do Pedido:</b> <span id="prevPedido">________</span></p>
+
             <p><b>Valor do Pedido:</b> <span id="prevValor">_______</span></p>
+
             <p><b>Desconto:</b> <span id="prevDesconto">________</span></p>
+
             <p><b>Data da entrega:</b> <span id="prevData">________</span></p>
+
             <p><b>Atendimento ao cliente:</b> 08:00 às 22:00 de Seg. a Sáb.</p>
         </div>
+
+        
     </div>
 
-    <script>
-        function gerarPreview() {
-            document.getElementById("prevNome").innerText = document.getElementById("cliente").value || "________";
-            document.getElementById("prevPedido").innerText = document.getElementById("pedido").value || "________";
-            document.getElementById("prevValor").innerText = document.getElementById("valor").value || "________";
-            document.getElementById("prevDesconto").innerText = document.getElementById("desconto").value || "______";
-            document.getElementById("prevData").innerText = document.getElementById("data").value || "________";
-        }
-    </script>
-</body>
-</html>
-
 
 </body>
 </html>
-
     
